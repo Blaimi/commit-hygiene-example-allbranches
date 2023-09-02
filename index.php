@@ -32,10 +32,10 @@ if (empty($_GET['firstName'])) {
 <html lang="en">
     <head><title>commit hygiene example</title></head>
     <body>
-        <h1><?= $user->getFirstName() . ' ' . $user->getLastName() ?></h1>
+        <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName(), ENT_HTML5) ?></h1>
         <p>
-            <?= $user->getStreet() ?><br>
-            <span style="font-size: larger"><?= $user->getZip() ?></span> <?= $user->getCity() ?>
+            <?= htmlspecialchars($user->getStreet(), ENT_HTML5) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getCity(), ENT_HTML5) ?>
         </p>
         <form>
             <button type="submit" formaction="index.php">new</button>
