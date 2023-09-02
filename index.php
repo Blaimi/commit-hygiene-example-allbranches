@@ -1,5 +1,5 @@
 <?php
-require "dto.php";
+require_once "dto.php";
 
 if (empty($_GET['firstName'])) {
 ?>
@@ -44,4 +44,3 @@ if (empty($_GET['firstName'])) {
 </html>
 <?php
 }
-?>
