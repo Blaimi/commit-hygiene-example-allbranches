@@ -12,9 +12,9 @@ if (empty($_GET['firstName'])) {
         <form>
             <label>first name <input name="firstName"/></label><br>
             <label>last name <input name="lastName"/></label><br>
-            <label>street <input name="street"/></label><br>
-            <label>zip <input name="zip"/></label><br>
-            <label>city <input name="city"/></label><br>
+            <label>street <input name="address[street]"/></label><br>
+            <label>zip <input name="address[zip]"/></label><br>
+            <label>city <input name="address[city]"/></label><br>
             <button type="submit">submit</button>
         </form>
     </body>
@@ -29,8 +29,8 @@ if (empty($_GET['firstName'])) {
     <body>
         <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName()) ?></h1>
         <p>
-            <?= htmlspecialchars($user->getStreet()) ?><br>
-            <span style="font-size: larger"><?= htmlspecialchars($user->getZip()) ?></span> <?= htmlspecialchars($user->getCity()) ?>
+            <?= htmlspecialchars($user->getAddress()->getStreet()) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getAddress()->getZip()) ?></span> <?= htmlspecialchars($user->getAddress()->getCity()) ?>
         </p>
     </body>
 </html>

@@ -3,16 +3,13 @@
 class User {
     private string $firstName;
     private string $lastName;
-    private string $street;
-    private string $zip;
-    private string $city;
+
+    private Address $address;
 
     public function __construct(array $data) {
         $this->firstName = $data['firstName'];
         $this->lastName = $data['lastName'];
-        $this->street = $data['street'];
-        $this->zip = $data['zip'];
-        $this->city = $data['city'];
+        $this->address = new Address($data['address']);
     }
 
     public function getFirstName(): string {
@@ -21,6 +18,22 @@ class User {
 
     public function getLastName(): string {
         return $this->lastName;
+    }
+
+    public function getAddress(): Address {
+        return $this->address;
+    }
+}
+
+class Address {
+    private string $street;
+    private string $zip;
+    private string $city;
+
+    public function __construct(array $data) {
+        $this->street = $data['street'];
+        $this->zip = $data['zip'];
+        $this->city = $data['city'];
     }
 
     public function getStreet(): string {
