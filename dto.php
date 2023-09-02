@@ -4,12 +4,16 @@ class User {
     private string $firstName;
     private string $lastName;
 
-    private Address $address;
+    private Address $invoiceAddress;
+    private Address|null $deliveryAddress = null;
 
     public function __construct(array $data) {
         $this->firstName = $data['firstName'];
         $this->lastName = $data['lastName'];
-        $this->address = new Address($data['address']);
+        $this->invoiceAddress = new Address($data['invoiceAddress']);
+        if (empty($data['deliveryAddress']['street'])) {
+            $this->deliveryAddress = new Address($data['deliveryAddress']);
+        }
     }
 
     public function getFirstName(): string {
@@ -20,8 +24,12 @@ class User {
         return $this->lastName;
     }
 
-    public function getAddress(): Address {
-        return $this->address;
+    public function getInvoiceAddress(): Address {
+        return $this->invoiceAddress;
+    }
+
+    public function getDeliveryAddress(): Address {
+        return $this->deliveryAddress ?: $this->invoiceAddress;
     }
 }
 

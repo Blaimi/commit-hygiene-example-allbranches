@@ -12,9 +12,14 @@ if (empty($_GET['firstName'])) {
         <form>
             <label>first name <input name="firstName"/></label><br>
             <label>last name <input name="lastName"/></label><br>
-            <label>street <input name="address[street]"/></label><br>
-            <label>zip <input name="address[zip]"/></label><br>
-            <label>city <input name="address[city]"/></label><br>
+            <h2>invoice address</h2>
+            <label>street <input name="invoiceAddress[street]"/></label><br>
+            <label>zip <input name="invoiceAddress[zip]"/></label><br>
+            <label>city <input name="invoiceAddress[city]"/></label><br>
+            <h2>delivery address (optional)</h2>
+            <label>street <input name="deliveryAddress[street]"/></label><br>
+            <label>zip <input name="deliveryAddress[zip]"/></label><br>
+            <label>city <input name="deliveryAddress[city]"/></label><br>
             <button type="submit">submit</button>
         </form>
     </body>
@@ -28,9 +33,15 @@ if (empty($_GET['firstName'])) {
     <head><title>commit hygiene example</title></head>
     <body>
         <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName(), ENT_HTML5) ?></h1>
+        <h2>invoice address</h2>
         <p>
-            <?= htmlspecialchars($user->getAddress()->getStreet(), ENT_HTML5) ?><br>
-            <span style="font-size: larger"><?= htmlspecialchars($user->getAddress()->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getAddress()->getCity(), ENT_HTML5) ?>
+            <?= htmlspecialchars($user->getInvoiceAddress()->getStreet(), ENT_HTML5) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getInvoiceAddress()->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getInvoiceAddress()->getCity(), ENT_HTML5) ?>
+        </p>
+        <h2>delivery address</h2>
+        <p>
+            <?= htmlspecialchars($user->getDeliveryAddress()->getStreet(), ENT_HTML5) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getDeliveryAddress()->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getDeliveryAddress()->getCity(), ENT_HTML5) ?>
         </p>
     </body>
 </html>
