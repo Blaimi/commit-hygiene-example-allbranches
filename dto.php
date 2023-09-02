@@ -11,7 +11,7 @@ class User {
         $this->firstName = $data['firstName'];
         $this->lastName = $data['lastName'];
         $this->invoiceAddress = new Address($data['invoiceAddress']);
-        if ($data['deliveryAddress']['street'] != null) {
+        if (empty($data['deliveryAddress']['street'])) {
             $this->deliveryAddress = new Address($data['deliveryAddress']);
         }
     }
