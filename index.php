@@ -10,16 +10,11 @@ if (empty($_GET['firstName'])) {
     </head>
     <body>
         <form>
-            <label for="firstName">first name</label>
-            <input id="firstName" name="firstName"/><br>
-            <label for="lastName">last name</label>
-            <input id="lastName" name="lastName"/><br>
-            <label for="street">street</label>
-            <input id="street" name="street"/><br>
-            <label for="zip">zip</label>
-            <input id="zip" name="zip"/><br>
-            <label for="city">city</label>
-            <input id="city" name="city"/><br>
+            <label>first name <input name="firstName"/></label><br>
+            <label>last name <input name="lastName"/></label><br>
+            <label>street <input name="street"/></label><br>
+            <label>zip <input name="zip"/></label><br>
+            <label>city <input name="city"/></label><br>
             <button type="submit">submit</button>
         </form>
     </body>
