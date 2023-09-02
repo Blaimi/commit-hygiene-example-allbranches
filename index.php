@@ -32,16 +32,16 @@ if (empty($_GET['firstName'])) {
 <html lang="en">
     <head><title>commit hygiene example</title></head>
     <body>
-        <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName()) ?></h1>
+        <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName(), ENT_HTML5) ?></h1>
         <h2>invoice address</h2>
         <p>
-            <?= htmlspecialchars($user->getInvoiceAddress()->getStreet()) ?><br>
-            <span style="font-size: larger"><?= htmlspecialchars($user->getInvoiceAddress()->getZip()) ?></span> <?= htmlspecialchars($user->getInvoiceAddress()->getCity()) ?>
+            <?= htmlspecialchars($user->getInvoiceAddress()->getStreet(), ENT_HTML5) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getInvoiceAddress()->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getInvoiceAddress()->getCity(), ENT_HTML5) ?>
         </p>
         <h2>delivery address</h2>
         <p>
-            <?= htmlspecialchars($user->getDeliveryAddress()->getStreet()) ?><br>
-            <span style="font-size: larger"><?= htmlspecialchars($user->getDeliveryAddress()->getZip()) ?></span> <?= htmlspecialchars($user->getDeliveryAddress()->getCity()) ?>
+            <?= htmlspecialchars($user->getDeliveryAddress()->getStreet(), ENT_HTML5) ?><br>
+            <span style="font-size: larger"><?= htmlspecialchars($user->getDeliveryAddress()->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getDeliveryAddress()->getCity(), ENT_HTML5) ?>
         </p>
     </body>
 </html>
