@@ -32,9 +32,6 @@ if (empty($_GET['firstName'])) {
             <?= htmlspecialchars($user->getStreet(), ENT_HTML5) ?><br>
             <span style="font-size: larger"><?= htmlspecialchars($user->getZip(), ENT_HTML5) ?></span> <?= htmlspecialchars($user->getCity(), ENT_HTML5) ?>
         </p>
-        <form>
-            <button type="submit" formaction="index.php">new</button>
-        </form>
     </body>
 </html>
 <?php
