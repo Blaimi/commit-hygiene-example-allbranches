@@ -28,7 +28,7 @@ if (empty($_GET['firstName'])) {
 } else {
     $user = new User($_GET);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html lang="en">
     <head><title>commit hygiene example</title></head>
     <body>
