@@ -32,7 +32,7 @@ if (empty($_GET['firstName'])) {
 <html lang="en">
     <head><title>commit hygiene example</title></head>
     <body>
-        <h1><?=$user->getFirstName() . ' ' . $user->getLastName()?></h1>
+        <h1><?= htmlspecialchars($user->getFirstName() . ' ' . $user->getLastName()) ?></h1>
         <h2>invoice address</h2>
         <p>
             <?= htmlspecialchars($user->getInvoiceAddress()->getStreet()) ?><br>
